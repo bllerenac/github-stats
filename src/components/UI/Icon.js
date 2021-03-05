@@ -27,7 +27,7 @@ function Icon({type, color, size, onClick}) {
         <IconToRender 
             onClick={onClick}
             css={css`
-            color: ${color};
+            fill: ${color};
             font-size: ${size}px;
             `}
         />        
