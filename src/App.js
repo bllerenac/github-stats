@@ -1,27 +1,30 @@
-import "./App.css";
-import Button from "./components/UI/Button";
-import Icon from "./components/UI/Icon";
-import NavComponent from "./components/containers/Nav";
-import Avatar from "./components/UI/Avatar";
-import Home from './pages/Home';
-import { CardRepo, CardRepoAdditionals } from "./components/containers/Card";
-import { ContentBold, ContentSmall } from "./components/text/Content";
-
+import { Global, css } from "@emotion/react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Search from "./Pages/Search";
 function App() {
   return (
     <div className="App">
-      <CardRepo>
-        <ContentBold children="Frank Dominguez" color="black" />
-        <ContentSmall children="lorem lorem lorem loremloremlorem loremlorem" />
-        <CardRepoAdditionals stars={20} forks={15} language="ruby" />
-      </CardRepo>
+      <Global
+        styles={css`
+          @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
+          * {
+            font-family: Source Code Pro;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            background: #f2f2f2;
+          }
+        `}
+      />
+      <Router>
+        <Switch>
+          <Route path="/" component={Search} />
+        </Switch>
+      </Router>
 
-      <Icon type="home" color="blue" size="20" />
-      <Home/>
-    
-      <Avatar />
-      <NavComponent />
-      <Button />
     </div>
   );
 }
