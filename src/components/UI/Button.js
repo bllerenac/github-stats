@@ -11,12 +11,21 @@ const StyledButton =  styled.button`
     border-radius: 4px;
     font-weight: bold;
     font-size: 16px;
-    
+    line-height: 20px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    transition: background 300ms;
+    &:hover {
+        background: #2db2db;
+    }
     `;
 
 function Button() {
     return (
-
+        <StyledButton>
+            Hola
+        </StyledButton>
     )
 }
 
