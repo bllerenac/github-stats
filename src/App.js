@@ -1,6 +1,7 @@
 import { Global, css } from "@emotion/react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Search from "./Pages/Search";
+import Repos from "./pages/Repos";
+// import Search from "./pages/Search";
 function App() {
   return (
     <div className="App">
@@ -21,7 +22,7 @@ function App() {
       />
       <Router>
         <Switch>
-          <Route path="/" component={Search} />
+          <Route path="/" component={Repos} />
         </Switch>
       </Router>
 

@@ -5,6 +5,7 @@ import octocat from "../assets/octocat.png"
 import NavComponent from "../components/containers/Nav";
 import Button from "../components/UI/Button"
 
+
 const StyledHome = styled.div`
     width: 100vw;
     height: 100vh;
@@ -33,6 +34,7 @@ function Home() {
                 `} 
             />
         </StyledHome>
+        
     );
 };
 
