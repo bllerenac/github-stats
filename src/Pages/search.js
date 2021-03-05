@@ -101,12 +101,12 @@ function Search({ history, location }) {
       </Content>
       <div className="follow-container">
         <Card>
-          <Icon type="followers" size={60} fill="#2D9CDB" />
+          <Icon type="followers" size={60} color="#2D9CDB" />
           <HeadingH2>{data.followers}</HeadingH2>
           <Content>Followers</Content>
         </Card>
         <Card>
-          <Icon type="followings" size={60} fill="#F2994A" />
+          <Icon type="followings" size={60} color="#F2994A" />
           <HeadingH2>{data.following}</HeadingH2>
           <Content>Followings</Content>
         </Card>
