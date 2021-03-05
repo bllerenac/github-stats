@@ -6,7 +6,7 @@ const StyledImg = styled.div`
   border-radius: 50%;
   background-image: url(${(props) => props.src});
   background-size: cover;
-  background-color: ${(props) => (props.bgColor ? props.bgColor : "#333")};
+  background-color: ${(props) => (props.src ? "" : "#333")};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@ const StyledImg = styled.div`
   }
 `;
 
-function Avatar({ src, placeholder }) {
+function Avatar({ src, placeholder}) {
   return <StyledImg src={src}>{!src && <p>{placeholder}</p>}</StyledImg>;
 }
 
