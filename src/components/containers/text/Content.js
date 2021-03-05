@@ -25,6 +25,11 @@ const StyledContentPrimaryBold = styled(Basic)`
   font-weight: 700;
 `;
 
+const StyledContent = styled(Basic)`
+  font-size: 16px;
+  line-height: 20px;
+`;
+
 function ContentPrimary({ children, color }) {
   return <StyledContentPrimary color={color} children={children} />;
 }
@@ -33,4 +38,8 @@ function ContentPrimaryBold({ children, color }) {
   return <StyledContentPrimaryBold color={color} children={children} />;
 }
 
-export { ContentPrimary, ContentPrimaryBold };
+function Content({ children, color }) {
+  return <StyledContent color={color} children={children} />;
+}
+
+export { ContentPrimary, ContentPrimaryBold, Content };
