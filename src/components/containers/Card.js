@@ -32,6 +32,17 @@ const StyledCardRepoAdditionals = styled.div`
   }
 `;
 
+const StyledCardHorizontal = styled(BasicCard)`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  & > *:nth-child(2) {
+    flex-grow: 1;
+  }
+`;
+
 function CardRepo({ children }) {
   return <StyledCardRepo>{children}</StyledCardRepo>;
 }
@@ -57,4 +68,8 @@ function CardRepoAdditionals({ language, stars, forks }) {
   );
 }
 
-export { CardRepo, CardRepoAdditionals };
+function CardHorizontal({ children }) {
+  return <StyledCardHorizontal>{children}</StyledCardHorizontal>;
+}
+
+export { CardRepo, CardRepoAdditionals, CardHorizontal };
