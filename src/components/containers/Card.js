@@ -32,6 +32,17 @@ const StyledCardRepoAdditionals = styled.div`
   }
 `;
 
+const StyledCardFavorite = styled(BasicCard)`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  & > div:nth-child(2) {
+    flex-grow: 1;
+  }
+`;
+
 function CardRepo({ children }) {
   return <StyledCardRepo>{children}</StyledCardRepo>;
 }
@@ -57,4 +68,8 @@ function CardRepoAdditionals({ language, stars, forks }) {
   );
 }
 
-export { CardRepo, CardRepoAdditionals };
+function CardFavorite({ children }) {
+  return <StyledCardFavorite>{children}</StyledCardFavorite>;
+}
+
+export { CardRepo, CardRepoAdditionals, CardFavorite };
