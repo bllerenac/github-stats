@@ -29,6 +29,6 @@ const StyledInput = styled.input`
   }
 `;
 
-export default function Input(prop) {
-  return <StyledInput {...prop} />;
+export default function InputText({ text, onChange }) {
+  return <StyledInput type="text " value={text} onChange={onChange} />;
 }
