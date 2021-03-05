@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import Icon from "../UI/Icon";
-import { ContentSmall } from "./text/Content";
+import { ContentSmall } from "./../text/Content";
 
 const BasicCard = styled.div`
   min-heigth: 50px;
@@ -41,17 +41,17 @@ function CardRepoAdditionals({ language, stars, forks }) {
     <StyledCardRepoAdditionals>
       <div>
         <Icon type="circle" color="#F2C94C" size="12" />
-        <ContentSmall color="black">{language}</ContentSmall>
+        <ContentSmall children={language} />
       </div>
 
       <div>
         <Icon type="starOut" color="#03053D" size="12" />
-        <ContentSmall color="black">{stars}</ContentSmall>
+        <ContentSmall children={stars} />
       </div>
 
       <div>
         <Icon type="githubFork" color="#03053D" size="12" />
-        <ContentSmall color="black">{forks}</ContentSmall>
+        <ContentSmall children={forks} />
       </div>
     </StyledCardRepoAdditionals>
   );
