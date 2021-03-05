@@ -18,7 +18,17 @@ const StyledNav = styled.div`
 
 function NavComponent({css}){
     return (
-        
+        <StyledNav css={css}>
+            <div className="icons-wrap">
+                {
+                    <Icon
+                    type="home"
+                    color={"#828282"}
+                    size={50}
+                    />
+                }
+            </div>
+        </StyledNav>
     )
 }
 
