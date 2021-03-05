@@ -8,7 +8,7 @@ const Basic = ({ color, children, className }) => (
   <p
     className={className}
     css={css`
-      color: ${colors[color]};
+      color: ${colors[color] || colors["black"]};
     `}
   >
     {children}
