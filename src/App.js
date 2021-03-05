@@ -3,6 +3,7 @@ import Button from './components/UI/Button'
 import Icon from './components/UI/Icon'
 import NavComponent from './components/containers/Nav'
 import Avatar from "./components/UI/Avatar";
+import Search from "./Pages/search"
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Avatar />
       <NavComponent />
       <Button />
-    
+      <Search/>
     </div>
   );
 }
