@@ -1,17 +1,31 @@
-import "./App.css";
-import Button from "./components/UI/Button";
-import Icon from "./components/UI/Icon";
-import NavComponent from "./components/containers/Nav";
-import Avatar from "./components/UI/Avatar";
-import Home from './pages/Home';
-
-import Repos from "./pages/Repos"
-
+import { Global, css } from "@emotion/react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Repos from "./pages/Repos";
+// import Search from "./pages/Search";
 function App() {
   return (
     <div className="App">
-      
-      <Repos />
+      <Global
+        styles={css`
+          @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap");
+          * {
+            font-family: Source Code Pro;
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            background: #f2f2f2;
+          }
+        `}
+      />
+      <Router>
+        <Switch>
+          <Route path="/" component={Repos} />
+        </Switch>
+      </Router>
+
     </div>
   );
 }
