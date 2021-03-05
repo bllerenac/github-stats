@@ -1,11 +1,11 @@
 import './App.css'
-import './components/UI/icons.js'
+import Icon from './components/UI/Icon'
 
 function App() {
   return (
     <div className="App">
       
-      <Icon  type={home} color="blue" size="20" />
+      <Icon  type="home" color="blue" size="20" />
     </div>
   );
 }
