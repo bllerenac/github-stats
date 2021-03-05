@@ -20,9 +20,8 @@ function Home() {
         <StyledHome>
             <HeadingPrimary style={css`
                 width: 264px;
-            `}
-            >
-                Welcome to Github Users
+            `} text="Welcome to Github Users">
+                
             </HeadingPrimary>  
             <img src={octocat}/>
             <Button>Continue</Button>   
