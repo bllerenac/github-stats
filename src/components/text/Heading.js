@@ -6,7 +6,6 @@ const StyledHeading = styled.h1`
   font-weight: normal;
   font-size: 32px;
   line-height: 40px;
-
   color: #333333;
   ${({ css }) => css}
 `;

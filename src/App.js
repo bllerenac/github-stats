@@ -3,6 +3,7 @@ import Button from "./components/UI/Button";
 import Icon from "./components/UI/Icon";
 import NavComponent from "./components/containers/Nav";
 import Avatar from "./components/UI/Avatar";
+import Home from './pages/Home';
 import { CardRepo, CardRepoAdditionals } from "./components/containers/Card";
 import { ContentBold, ContentSmall } from "./components/text/Content";
 
@@ -16,6 +17,8 @@ function App() {
       </CardRepo>
 
       <Icon type="home" color="blue" size="20" />
+      <Home/>
+    
       <Avatar />
       <NavComponent />
       <Button />
