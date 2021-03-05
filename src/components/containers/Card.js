@@ -32,13 +32,13 @@ const StyledCardRepoAdditionals = styled.div`
   }
 `;
 
-const StyledCardFavorite = styled(BasicCard)`
+const StyledCardHorizontal = styled(BasicCard)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 8px;
 
-  & > div:nth-child(2) {
+  & > *:nth-child(2) {
     flex-grow: 1;
   }
 `;
@@ -68,8 +68,8 @@ function CardRepoAdditionals({ language, stars, forks }) {
   );
 }
 
-function CardFavorite({ children }) {
-  return <StyledCardFavorite>{children}</StyledCardFavorite>;
+function CardHorizontal({ children }) {
+  return <StyledCardHorizontal>{children}</StyledCardHorizontal>;
 }
 
-export { CardRepo, CardRepoAdditionals, CardFavorite };
+export { CardRepo, CardRepoAdditionals, CardHorizontal };
