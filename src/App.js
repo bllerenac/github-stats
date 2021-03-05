@@ -4,24 +4,14 @@ import Icon from "./components/UI/Icon";
 import NavComponent from "./components/containers/Nav";
 import Avatar from "./components/UI/Avatar";
 import Home from './pages/Home';
-import { CardRepo, CardRepoAdditionals } from "./components/containers/Card";
-import { ContentBold, ContentSmall } from "./components/text/Content";
+
+import Repos from "./pages/Repos"
 
 function App() {
   return (
     <div className="App">
-      <CardRepo>
-        <ContentBold children="Frank Dominguez" color="black" />
-        <ContentSmall children="lorem lorem lorem loremloremlorem loremlorem" />
-        <CardRepoAdditionals stars={20} forks={15} language="ruby" />
-      </CardRepo>
-
-      <Icon type="home" color="blue" size="20" />
-      <Home/>
-    
-      <Avatar />
-      <NavComponent />
-      <Button />
+      
+      <Repos />
     </div>
   );
 }

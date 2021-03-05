@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import Navbar from "../components/containers/Navbar";
-import Card from "../components/containers/Card";
-import Avatar from "../components/UI/Avatar";
-import Icon from "../components/UI/Icon";
+import NavComponent from "../components/containers/Nav";
+import { CardRepo, CardRepoAdditionals } from "../components/containers/Card";
+import { ContentBold, ContentSmall } from "../components/text/Content";
+import { Heading } from "../components/text/Heading"
 
 const StyledRepos = styled.div`
     width: 100vw;
@@ -22,3 +22,30 @@ const StyledRepos = styled.div`
     }
 `;
 
+function Repos() {
+    return (
+        <StyledRepos>
+             <Heading style={css`
+                width: 264px;
+            `} text="Public Repos">
+                
+            </Heading>
+            <div className="cards-wrapper">
+            <CardRepo>
+                <ContentBold children="Frank Dominguez" color="black" />
+                <ContentSmall children="lorem lorem lorem loremloremlorem loremlorem" />
+                <CardRepoAdditionals stars={20} forks={15} language="ruby" />
+            </CardRepo>
+            </div>
+            <NavComponent
+                css={css`
+                    position: fixed;
+                    bottom: 0;
+                    width: 100%;
+                `} 
+            />
+        </StyledRepos>
+    );
+}
+
+export default Repos;
