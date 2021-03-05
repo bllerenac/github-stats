@@ -5,9 +5,9 @@ import Icon from './components/UI/Icon'
 function App() {
   return (
     <div className="App">
-      
       <Icon  type="home" color="blue" size="20" />
       <NavComponent />
+      <Icon type="home" color="blue" size="20" />
     </div>
   );
 }
