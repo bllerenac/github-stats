@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 const StyledImg = styled.div`
@@ -15,10 +16,26 @@ const StyledImg = styled.div`
     font-weight: bold;
     font-size: 30px;
   }
+  ${({ css }) => css}
 `;
 
-function Avatar({ src, placeholder}) {
+function Avatar({ src, placeholder }) {
   return <StyledImg src={src}>{!src && <p>{placeholder}</p>}</StyledImg>;
 }
 
+function AvatarSmall({ src, placeholder }) {
+  return (
+    <StyledImg
+      src={src}
+      css={css`
+        width: 40px;
+        height: 40px;
+      `}
+    >
+      {!src && <p>{placeholder}</p>}
+    </StyledImg>
+  );
+}
+
 export default Avatar;
+export { AvatarSmall };
