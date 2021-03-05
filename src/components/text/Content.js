@@ -35,6 +35,12 @@ const StyledContentBold = styled(Basic)`
   font-weight: 700;
 `;
 
+const StyledContentLB = styled(StyledContent)`
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 25px;
+`;
+
 const StyledContentSmall = styled(Basic)`
   font-size: 12px;
   line-height: 15px;
@@ -61,10 +67,15 @@ function ContentSmall({ children, color }) {
   return <StyledContentSmall color={color} children={children} />;
 }
 
+function ContentLargeBold({ children }) {
+  return <StyledContentLB>{children}</StyledContentLB>;
+}
+
 export {
   ContentPrimary,
   ContentPrimaryBold,
   Content,
   ContentBold,
   ContentSmall,
+  ContentLargeBold,
 };

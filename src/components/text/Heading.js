@@ -10,8 +10,20 @@ const StyledHeading = styled.h1`
   ${({ css }) => css}
 `;
 
+const StyledH2 = styled.h2`
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 35px;
+  text-align: center;
+  ${(props) => props.style};
+`;
+
 function HeadingPrimary({ text }) {
   return <StyledHeading children={text} />;
+}
+
+function HeadingH2({ children, style }) {
+  return <StyledH2 style={style}>{children}</StyledH2>;
 }
 
 function Heading({ text }) {
@@ -27,4 +39,4 @@ function Heading({ text }) {
   );
 }
 
-export { HeadingPrimary, Heading };
+export { HeadingH2, HeadingPrimary, Heading };
