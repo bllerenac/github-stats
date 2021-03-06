@@ -5,13 +5,14 @@ import { AvatarSmall } from "../components/UI/Avatar";
 import { Template, CardListContainer } from "./Template";
 import { useEffect, useState } from "react";
 import GithubService from "../services/github_service";
+import { useParams } from "react-router-dom";
 // import Pagination from "../components/containers/Pagination";
 
-function Follers({ match }) {
+function Follers() {
   const [followers, setFollowers] = useState([]);
   const [status, setStatus] = useState("loading");
 
-  const username = match.params.user;
+  const { user: username } = useParams();
 
   useEffect(() => {
     async function loadFollowers() {
