@@ -29,6 +29,13 @@ const StyledContent = styled(Basic)`
   font-size: 16px;
   line-height: 20px;
 `;
+
+const StyledContentCentered = styled(StyledContent)`
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+`;
+
 const StyledContentBold = styled(Basic)`
   font-size: 16px;
   line-height: 20px;
@@ -59,6 +66,10 @@ function Content({ children, color }) {
   return <StyledContent color={color} children={children} />;
 }
 
+function ContentCentered({ children, color }) {
+  return <StyledContentCentered color={color} children={children} />;
+}
+
 function ContentBold({ children, color }) {
   return <StyledContentBold color={color} children={children} />;
 }
@@ -75,6 +86,7 @@ export {
   ContentPrimary,
   ContentPrimaryBold,
   Content,
+  ContentCentered,
   ContentBold,
   ContentSmall,
   ContentLargeBold,
