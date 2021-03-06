@@ -5,14 +5,14 @@ import { AvatarSmall } from "../components/UI/Avatar";
 import { Template, CardListContainer } from "./Template";
 import { useEffect, useState } from "react";
 import GithubService from "../services/github_service";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 // import Pagination from "../components/containers/Pagination";
 
 function Follers() {
   const [followers, setFollowers] = useState([]);
   const [status, setStatus] = useState("loading");
 
-  const { user: username } = useParams();
+  const { username } = useParams();
 
   useEffect(() => {
     async function loadFollowers() {
@@ -46,12 +46,14 @@ function Follers() {
             {/**<Pagination from={1} to={5} selected={page} />*/}
 
             <CardListContainer>
-              {followers.map((item) => (
-                <CardHorizontal key={item.id}>
-                  <AvatarSmall src={item.avatar_url} />
+              {followers.map((follower) => (
+                <CardHorizontal key={follower.id}>
+                  <AvatarSmall src={follower.avatar_url} />
 
                   <div className="item--expand">
-                    <Content children={item.login} />
+                    <Link to={`/search?user=${follower.login}`}>
+                      <Content children={follower.login} />
+                    </Link>
                   </div>
                 </CardHorizontal>
               ))}
