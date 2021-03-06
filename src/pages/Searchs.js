@@ -119,11 +119,15 @@ function Search({ history, location }) {
             <Content>Followings</Content>
           </Card>
         </Link>
-        <Card>
-          <Icon type="repos" size={60} color="#219653" />
-          <HeadingH2>{data.public_repos}</HeadingH2>
-          <Content>public repos</Content>
-        </Card>
+        
+        <Link to={`/users/${query}/respos`}>
+          <Card>
+            <Icon type="repos" size={60} color="#219653" />
+            <HeadingH2>{data.public_repos}</HeadingH2>
+            <Content>public repos</Content>
+          </Card>
+        </Link>
+
         <Card>
           <Icon type="code" size={60} color="#828282" />
           <HeadingH2>{data.public_gists}</HeadingH2>
@@ -132,7 +136,7 @@ function Search({ history, location }) {
       </div>
     </>
   );
-    const text = data ? data.name : query
+    const text = data ? data.login : query
   return (
     <Template>
       <StyledDiv>
