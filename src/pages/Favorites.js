@@ -5,55 +5,44 @@ import { Content, ContentSmall } from "../components/text/Content";
 import Icon from "../components/UI/Icon";
 import { AvatarSmall } from "./../components/UI/Avatar";
 import { CardListContainer, Template } from "./Template";
+import { useEffect, useState } from "react";
+import { toggleFavorite } from "../Utils/favorites";
 
 function Favorite() {
-  const data = [
-    {
-      name: "Algo 1",
-      desc: "Another",
-    },
-    {
-      name: "Algo 2",
-      desc: "Another",
-    },
-    {
-      name: "Algo 3",
-      desc: "Another",
-    },
-    {
-      name: "Algo 4",
-      desc: "Another",
-    },
-    {
-      name: "Algo 5",
-      desc: "Another",
-    },
-    {
-      name: "Algo 6",
-      desc: "Another",
-    },
-    {
-      name: "Algo 7",
-      desc: "Another",
-    },
-  ];
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.favorites) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
+  const handleFavoritesRemove = function (favorite) {
+    toggleFavorite(favorites, favorite, setFavorites);
+  };
+
   return (
     <Template>
-      <Heading text="Favorites (7)" />
-
-      <Pagination from={1} to={5} selected={3} />
+      <Heading text={`Favorites (${favorites.length})`} />
 
       <CardListContainer>
-        {data.map((item) => (
-          <CardHorizontal key={item.name}>
-            <AvatarSmall />
+        <Pagination from={1} to={5} selected={3} />
+
+        {favorites.map((favorite) => (
+          <CardHorizontal key={favorite.id}>
+            <AvatarSmall src={favorite.avatar_url} />
 
             <div className="item--expand">
-              <Content children={item.name} />
-              <ContentSmall children={item.desc} />
+              <Content children={favorite.name} />
+              <ContentSmall children={favorite.bio} />
             </div>
 
-            <Icon type="star" color="#F2C94C" size="23" />
+            <Icon
+              type="star"
+              color="#F2C94C"
+              size={23}
+              onClick={() => handleFavoritesRemove(favorite)}
+            />
           </CardHorizontal>
         ))}
       </CardListContainer>
