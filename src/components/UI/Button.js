@@ -24,7 +24,7 @@ const StyledButton =  styled.button`
 function Button() {
     return (
         <StyledButton>
-            Hola
+            Continue
         </StyledButton>
     )
 }

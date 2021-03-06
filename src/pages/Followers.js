@@ -12,7 +12,7 @@ function Follers() {
   const [followers, setFollowers] = useState([]);
   const [status, setStatus] = useState("loading");
 
-  const { username } = useParams();
+  const { user: username } = useParams();
 
   useEffect(() => {
     async function loadFollowers() {
