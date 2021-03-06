@@ -1,11 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-<<<<<<< HEAD
 import { Link, useLocation } from "react-router-dom";
 import Icon from '../UI/Icon'
-=======
 import Icon from "../UI/Icon";
->>>>>>> main
 
 const StyledNav = styled.div`
   height: 66px;
