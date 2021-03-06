@@ -1,51 +1,78 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-import NavComponent from "../components/containers/Nav";
 import { CardRepo, CardRepoAdditionals } from "../components/containers/Card";
-import { ContentBold, ContentSmall } from "../components/text/Content";
-import { Heading } from "../components/text/Heading"
-
-const StyledRepos = styled.div`
-    width: 100vw;
-    heigh: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 60px;
-    gap: 60px;
-    & > .cards-wrapper {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 16px;
-        justify-content: center;
-    }
-`;
+import { Content, ContentBold, ContentSmall } from "../components/text/Content";
+import { Heading } from "../components/text/Heading";
+import { CardListContainer, Template } from "./Template";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import GithubService from "../services/github_service";
 
 function Repos() {
-    return (
-        <StyledRepos>
-             <Heading style={css`
-                width: 264px;
-            `} text="Public Repos">
-                
-            </Heading>
-            <div className="cards-wrapper">
-            <CardRepo>
-                <ContentBold children="Frank Dominguez" color="black" />
-                <ContentSmall children="lorem lorem lorem loremloremlorem loremlorem" />
-                <CardRepoAdditionals stars={20} forks={15} language="ruby" />
-            </CardRepo>
-            </div>
-            <NavComponent
-                css={css`
-                    position: fixed;
-                    bottom: 0;
-                    width: 100%;
-                `} 
-            />
-        </StyledRepos>
-    );
+  const [repos, setRepos] = useState([]);
+  const [status, setStatus] = useState("loading");
+
+  const { user: username } = useParams();
+
+  useEffect(() => {
+    async function loadRepos() {
+      try {
+        setStatus("loading");
+        const gitHubService = new GithubService();
+        const response = await gitHubService.respos(username);
+        console.log(username, response);
+
+        if (response.message) throw new Error(response.message);
+
+        setRepos(response);
+        setStatus("success");
+      } catch (error) {
+        console.log(error.message);
+        setStatus(error.message);
+      }
+    }
+
+    loadRepos();
+  }, [username]);
+
+  function showContent() {
+    switch (status) {
+      case "loading":
+        return <Content>Cargando...</Content>;
+      case "error":
+        return <Content>Oh no! something went wrong...</Content>;
+      case "success":
+        return (
+          <>
+            {/**<Pagination from={1} to={5} selected={page} />*/}
+
+            <CardListContainer>
+              {repos.map((repo) => (
+                <CardRepo key={repo.id}>
+                  <a href={repo.html_url} target="blank">
+                    <ContentBold children={repo.name} color="blue" />
+                  </a>
+                  <ContentSmall children={repo.description} />
+                  <CardRepoAdditionals
+                    stars={repo.stargazers_count}
+                    forks={repo.forks_count}
+                    language={repo.language}
+                  />
+                </CardRepo>
+              ))}
+            </CardListContainer>
+          </>
+        );
+      default:
+        return <Content>{status}</Content>;
+    }
+  }
+
+  return (
+    <Template>
+      <Heading text={`Public Repos (${repos.length})`} />
+
+      {showContent()}
+    </Template>
+  );
 }
 
 export default Repos;
