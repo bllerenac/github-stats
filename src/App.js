@@ -22,6 +22,12 @@ function App() {
           body {
             background: #f2f2f2;
           }
+          a {
+            text-decoration: none;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
         `}
       />
       <Router>
