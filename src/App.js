@@ -5,6 +5,7 @@ import Followings from "./pages/Followings";
 import Home from "./pages/Home";
 import Search from "./pages/Searchs";
 import Favorite from "./pages/Favorites";
+import Repos from "./pages/Repos";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       />
       <Router>
         <Switch>
+          <Route path="/users/:user/respos" component={Repos} />
           <Route path="/users/:user/followers" component={Followers} />
           <Route path="/users/:user/followings" component={Followings} />
           <Route path="/favorites" component={Favorite} />
