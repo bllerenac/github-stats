@@ -11,7 +11,7 @@ import { HeadingH2 } from "../components/text/Heading";
 import GithubService from "../services/github_service";
 import { getFavorite, toggleFavorite } from "../Utils/favorites";
 import { Link } from "react-router-dom";
-
+//renameSearch
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
