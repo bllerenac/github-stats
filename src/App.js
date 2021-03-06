@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Followers from "./pages/Followers";
 import Followings from "./pages/Followings";
 import Home from "./pages/Home";
-import Search from "./pages/Search";
+import Search from "./pages/Searchs";
 import Favorite from "./pages/Favorites";
 
 function App() {
