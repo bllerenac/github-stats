@@ -113,11 +113,13 @@ function Search({ history, location }) {
             <Content>Followers</Content>
           </Card>
         </Link>
-        <Card>
-          <Icon type="followings" size={60} color="#F2994A" />
-          <HeadingH2>{data.following}</HeadingH2>
-          <Content>Followings</Content>
-        </Card>
+        <Link to={`/users/${query}/followers`}>
+          <Card>
+            <Icon type="followings" size={60} color="#F2994A" />
+            <HeadingH2>{data.following}</HeadingH2>
+            <Content>Followings</Content>
+          </Card>
+        </Link>
         <Card>
           <Icon type="repos" size={60} color="#219653" />
           <HeadingH2>{data.public_repos}</HeadingH2>
