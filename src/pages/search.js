@@ -37,6 +37,7 @@ const StyledDiv = styled.div`
 
 function getLocationQuery(location) {
   const values = location.search.slice(1);
+  // eslint-disable-next-line
   const [_, value] = values.split("=");
   return value || "";
 }
@@ -63,8 +64,9 @@ function Search({ history, location }) {
     if (query !== "") {
       timerID = setTimeout(fetchUser, 1000);
     }
-
+// eslint-disable-next-line
     return () => clearTimeout(timerID);
+// eslint-disable-next-line
   }, [query]);
 
   useEffect(() => {
@@ -101,14 +103,24 @@ function Search({ history, location }) {
       </Content>
       <div className="follow-container">
         <Card>
-          <Icon type="followers" size={60} fill="#2D9CDB" />
+          <Icon type="followers" size={60} color="#2D9CDB" />
           <HeadingH2>{data.followers}</HeadingH2>
           <Content>Followers</Content>
         </Card>
         <Card>
-          <Icon type="followings" size={60} fill="#F2994A" />
+          <Icon type="followings" size={60} color="#F2994A" />
           <HeadingH2>{data.following}</HeadingH2>
           <Content>Followings</Content>
+        </Card>
+        <Card>
+          <Icon type="repos" size={60} color="#219653" />
+          <HeadingH2>{data.public_repos}</HeadingH2>
+          <Content>public repos</Content>
+        </Card>
+        <Card>
+          <Icon type="code" size={60} color="#828282" />
+          <HeadingH2>{data.public_gists}</HeadingH2>
+          <Content>public gist</Content>
         </Card>
       </div>
     </>
@@ -118,6 +130,7 @@ function Search({ history, location }) {
     <StyledDiv>
       <InputText value={query} onChange={(e) => setQuery(e.target.value)} />
       <div className="results">
+        {console.log(data)}
         {!data && <NoData />}
         {data && <ProfileView />}
       </div>

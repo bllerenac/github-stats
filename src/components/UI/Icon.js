@@ -6,8 +6,9 @@ import {
     RiStarLine,
     RiUserHeartFill,
     RiSearchFill,
+    RiGitRepositoryFill,
 } from "react-icons/ri";
-import { FaUsers } from "react-icons/fa";
+import { FaUsers, FaFileCode } from "react-icons/fa";
 import { BsCircleFill } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiGitRepoForked } from "react-icons/bi";
@@ -25,6 +26,8 @@ const setIcon = {
     github: FaGithub,
     githubFork: BiGitRepoForked,
     circle: BsCircleFill,
+    repos: RiGitRepositoryFill,
+    code:FaFileCode,
 }
 
 function Icon({type, color, size, onClick}) {
