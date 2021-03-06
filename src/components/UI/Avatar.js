@@ -30,6 +30,7 @@ function AvatarSmall({ src, placeholder }) {
       css={css`
         width: 40px;
         height: 40px;
+        flex-shrink: 0;
       `}
     >
       {!src && <p>{placeholder}</p>}
