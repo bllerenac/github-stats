@@ -5,11 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 import octocat from "../assets/octocat.png"
 import NavComponent from "../components/containers/Nav";
 import Button from "../components/UI/Button"
+import { Template } from "./Template";
 
 
 const StyledHome = styled.div`
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,25 +25,19 @@ function Home() {
         star: "/favorites",
     };
     return (
-        <StyledHome>
-            <HeadingPrimary style={css`
-                width: 264px;
-            `} text="Welcome to Github Users">
-                
-            </HeadingPrimary>  
-            <img src={octocat} alt="OctoCat"/>
-            <Link to={selectedOptions["search"]}>
-                <Button>Continue</Button>   
-            </Link>
-            <NavComponent
-                css={css`
-                    position: fixed;
-                    bottom: 0;
-                    width: 100%;
-                `} 
-            />
-        </StyledHome>
-        
+        <Template>
+            <StyledHome>
+                <HeadingPrimary style={css`
+                    width: 264px;
+                `} text="Welcome to Github Users">
+                    
+                </HeadingPrimary>  
+                <img src={octocat} alt="OctoCat"/>
+                <Link to={selectedOptions["search"]}>
+                    <Button>Continue</Button>   
+                </Link>
+            </StyledHome>
+        </Template>
     );
 };
 
