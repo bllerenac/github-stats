@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import NavComponent from "../components/containers/Nav";
 import InputText from "../components/form/InputText";
 import Icon from "../components/UI/Icon";
 import {ContentCentered as Content, ContentLargeBold} from "../components/text/Content";
+import { Template } from "./Template";
 import Avatar from "../components/UI/Avatar";
 import { Card } from "../components/containers/Card";
 import { HeadingH2 } from "../components/text/Heading";
@@ -13,8 +13,6 @@ import { getFavorite, toggleFavorite } from "../Utils/favorites";
 import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,19 +130,15 @@ function Search({ history, location }) {
   );
 
   return (
-    <StyledDiv>
+    <Template>
+      <StyledDiv>
       <InputText value={query} onChange={(e) => setQuery(e.target.value)} />
       <div className="results">
         {!data && <NoData />}
         {data && <ProfileView />}
       </div>
-      <NavComponent
-        css={css`
-          position: fixed;
-          bottom: 0;
-        `}
-      />
-    </StyledDiv>
+      </StyledDiv>
+    </Template>
   );
 }
 
