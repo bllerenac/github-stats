@@ -132,11 +132,11 @@ function Search({ history, location }) {
       </div>
     </>
   );
-
+    const text = data ? data.name : query
   return (
     <Template>
       <StyledDiv>
-      <InputText place_h={"username"} text={data.name} onChange={(e) => setQuery(e.target.value)} />
+      <InputText place_h={"username"} text={text} onChange={(e) => setQuery(e.target.value)} />
       <div className="results">
         {!data && <NoData />}
         {data && <ProfileView />}
