@@ -112,6 +112,16 @@ function Search({ history, location }) {
           <HeadingH2>{data.following}</HeadingH2>
           <Content>Followings</Content>
         </Card>
+        <Card>
+          <Icon type="repos" size={60} color="#219653" />
+          <HeadingH2>{data.public_repos}</HeadingH2>
+          <Content>public repos</Content>
+        </Card>
+        <Card>
+          <Icon type="code" size={60} color="#828282" />
+          <HeadingH2>{data.public_gists}</HeadingH2>
+          <Content>public gist</Content>
+        </Card>
       </div>
     </>
   );
@@ -120,6 +130,7 @@ function Search({ history, location }) {
     <StyledDiv>
       <InputText value={query} onChange={(e) => setQuery(e.target.value)} />
       <div className="results">
+        {console.log(data)}
         {!data && <NoData />}
         {data && <ProfileView />}
       </div>

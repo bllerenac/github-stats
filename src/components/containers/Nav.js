@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 import { Link, useLocation } from "react-router-dom";
-import Icon from '../UI/Icon'
 import Icon from "../UI/Icon";
 
 const StyledNav = styled.div`
@@ -17,7 +16,6 @@ const StyledNav = styled.div`
     justify-content: space-between;
   }
 `;
-
 
 function NavComponent({css}){
     const location = useLocation();
@@ -43,25 +41,6 @@ function NavComponent({css}){
                )}
             </div>
         </StyledNav>
-    )
-function NavComponent({ css }) {
-  const icon_nav = ["home", "search", "star"];
-  return (
-    <StyledNav css={css}>
-      <div className="icons-wrap">
-        {icon_nav.map((name_icon) => {
-          return (
-            <Icon
-              key={name_icon}
-              type={name_icon}
-              color={"#828282"}
-              size={50}
-            />
-          );
-        })}
-      </div>
-    </StyledNav>
-  );
-}
+    )}
 
 export default NavComponent;

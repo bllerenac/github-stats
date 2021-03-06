@@ -26,6 +26,7 @@ const StyledContentPrimaryBold = styled(Basic)`
 `;
 
 const StyledContent = styled(Basic)`
+  text-align: center;
   font-size: 16px;
   line-height: 20px;
 `;
