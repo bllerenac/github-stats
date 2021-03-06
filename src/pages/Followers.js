@@ -22,6 +22,8 @@ function Follers({ location }) {
         const gitHubService = new GithubService();
         const response = await gitHubService.followers(username);
 
+        if (response.message) throw new Error(response.message);
+
         setFollowers(response);
         setStatus("success");
       } catch (error) {

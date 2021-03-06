@@ -13,6 +13,7 @@ import { Card } from "../components/containers/Card";
 import { HeadingH2 } from "../components/text/Heading";
 import GithubService from "../services/github_service";
 import { getFavorite, toggleFavorite } from "../Utils/favorites";
+import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
   width: 100vw;
@@ -105,11 +106,13 @@ function Search({ history, location }) {
         {data.bio}
       </Content>
       <div className="follow-container">
-        <Card>
-          <Icon type="followers" size={60} color="#2D9CDB" />
-          <HeadingH2>{data.followers}</HeadingH2>
-          <Content>Followers</Content>
-        </Card>
+        <Link to={`/followers/${query}`}>
+          <Card>
+            <Icon type="followers" size={60} color="#2D9CDB" />
+            <HeadingH2>{data.followers}</HeadingH2>
+            <Content>Followers</Content>
+          </Card>
+        </Link>
         <Card>
           <Icon type="followings" size={60} color="#F2994A" />
           <HeadingH2>{data.following}</HeadingH2>
@@ -133,7 +136,6 @@ function Search({ history, location }) {
     <StyledDiv>
       <InputText value={query} onChange={(e) => setQuery(e.target.value)} />
       <div className="results">
-        {console.log(data)}
         {!data && <NoData />}
         {data && <ProfileView />}
       </div>
