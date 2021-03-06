@@ -5,6 +5,7 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 const PaginationContainer = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 8px;
 
