@@ -37,6 +37,7 @@ const StyledDiv = styled.div`
 
 function getLocationQuery(location) {
   const values = location.search.slice(1);
+  // eslint-disable-next-line
   const [_, value] = values.split("=");
   return value || "";
 }
@@ -63,8 +64,9 @@ function Search({ history, location }) {
     if (query !== "") {
       timerID = setTimeout(fetchUser, 1000);
     }
-
+// eslint-disable-next-line
     return () => clearTimeout(timerID);
+// eslint-disable-next-line
   }, [query]);
 
   useEffect(() => {

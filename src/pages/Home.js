@@ -24,7 +24,7 @@ function Home() {
             `} text="Welcome to Github Users">
                 
             </HeadingPrimary>  
-            <img src={octocat}/>
+            <img src={octocat} alt="OctoCat"/>
             <Button>Continue</Button>   
             <NavComponent
                 css={css`
