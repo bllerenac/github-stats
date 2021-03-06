@@ -5,7 +5,6 @@ import { Link, useLocation } from "react-router-dom";
 import octocat from "../assets/octocat.png"
 import NavComponent from "../components/containers/Nav";
 import Button from "../components/UI/Button"
-import Search from "./Search";
 
 
 const StyledHome = styled.div`

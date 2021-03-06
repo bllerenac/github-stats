@@ -1,48 +1,73 @@
 import { Heading } from "../components/text/Heading";
-import Pagination from "../components/containers/Pagination";
 import { CardHorizontal } from "../components/containers/Card";
 import { Content } from "../components/text/Content";
 import { AvatarSmall } from "../components/UI/Avatar";
 import { Template, CardListContainer } from "./Template";
+import { useEffect, useState } from "react";
+import GithubService from "../services/github_service";
+import { useParams } from "react-router-dom";
+// import Pagination from "../components/containers/Pagination";
 
 function Follers() {
-  const data = [
-    {
-      name: "Algo 1",
-    },
-    {
-      name: "Algo 2",
-    },
-    {
-      name: "Algo 3",
-    },
-    {
-      name: "Algo 4",
-    },
-    {
-      name: "Algo 5",
-    },
-    {
-      name: "Algo 6",
-    },
-  ];
+  const [followers, setFollowers] = useState([]);
+  const [status, setStatus] = useState("loading");
+
+  const { user: username } = useParams();
+
+  useEffect(() => {
+    async function loadFollowers() {
+      try {
+        setStatus("loading");
+        const gitHubService = new GithubService();
+        const response = await gitHubService.followers(username);
+
+        if (response.message) throw new Error(response.message);
+
+        setFollowers(response);
+        setStatus("success");
+      } catch (error) {
+        console.log(error.message);
+        setStatus("error");
+      }
+    }
+
+    loadFollowers();
+  }, [username]);
+
+  function showContent() {
+    switch (status) {
+      case "loading":
+        return <Content>Cargando...</Content>;
+      case "error":
+        return <Content>Oh no! something went wrong...</Content>;
+      case "success":
+        return (
+          <>
+            {/**<Pagination from={1} to={5} selected={page} />*/}
+
+            <CardListContainer>
+              {followers.map((item) => (
+                <CardHorizontal key={item.id}>
+                  <AvatarSmall src={item.avatar_url} />
+
+                  <div className="item--expand">
+                    <Content children={item.login} />
+                  </div>
+                </CardHorizontal>
+              ))}
+            </CardListContainer>
+          </>
+        );
+      default:
+        break;
+    }
+  }
+
   return (
     <Template>
-      <Heading text="follers (6)" />
+      <Heading text={`Followers (${followers.length})`} />
 
-      <Pagination from={1} to={5} selected={1} />
-
-      <CardListContainer>
-        {data.map((item) => (
-          <CardHorizontal key={item.name}>
-            <AvatarSmall />
-
-            <div className="item--expand">
-              <Content children={item.name} />
-            </div>
-          </CardHorizontal>
-        ))}
-      </CardListContainer>
+      {showContent()}
     </Template>
   );
 }

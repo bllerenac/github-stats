@@ -4,12 +4,16 @@ import { css } from "@emotion/react";
 import NavComponent from "../components/containers/Nav";
 import InputText from "../components/form/InputText";
 import Icon from "../components/UI/Icon";
-import { Content, ContentLargeBold } from "../components/text/Content";
+import {
+  ContentCentered as Content,
+  ContentLargeBold,
+} from "../components/text/Content";
 import Avatar from "../components/UI/Avatar";
-import {Card} from "../components/containers/Card";
+import { Card } from "../components/containers/Card";
 import { HeadingH2 } from "../components/text/Heading";
 import GithubService from "../services/github_service";
 import { getFavorite, toggleFavorite } from "../Utils/favorites";
+import { Link } from "react-router-dom";
 
 const StyledDiv = styled.div`
   width: 100vw;
@@ -64,9 +68,9 @@ function Search({ history, location }) {
     if (query !== "") {
       timerID = setTimeout(fetchUser, 1000);
     }
-// eslint-disable-next-line
+    // eslint-disable-next-line
     return () => clearTimeout(timerID);
-// eslint-disable-next-line
+    // eslint-disable-next-line
   }, [query]);
 
   useEffect(() => {
@@ -102,11 +106,13 @@ function Search({ history, location }) {
         {data.bio}
       </Content>
       <div className="follow-container">
-        <Card>
-          <Icon type="followers" size={60} color="#2D9CDB" />
-          <HeadingH2>{data.followers}</HeadingH2>
-          <Content>Followers</Content>
-        </Card>
+        <Link to={`/users/${query}/followers`}>
+          <Card>
+            <Icon type="followers" size={60} color="#2D9CDB" />
+            <HeadingH2>{data.followers}</HeadingH2>
+            <Content>Followers</Content>
+          </Card>
+        </Link>
         <Card>
           <Icon type="followings" size={60} color="#F2994A" />
           <HeadingH2>{data.following}</HeadingH2>
@@ -130,7 +136,6 @@ function Search({ history, location }) {
     <StyledDiv>
       <InputText value={query} onChange={(e) => setQuery(e.target.value)} />
       <div className="results">
-        {console.log(data)}
         {!data && <NoData />}
         {data && <ProfileView />}
       </div>
