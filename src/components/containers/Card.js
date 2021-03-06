@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import Icon from "../UI/Icon";
 import { ContentSmall } from "./../text/Content";
+import { getColor } from "./../../Utils/languageColor";
 
 const sizes = {
   default: { width: "140px" },
@@ -66,10 +67,11 @@ function CardRepo({ children }) {
 }
 
 function CardRepoAdditionals({ language, stars, forks }) {
+  let color = getColor(language);
   return (
     <StyledCardRepoAdditionals>
       <div>
-        <Icon type="circle" color="#F2C94C" size="12" />
+        <Icon type="circle" color={color} size="12" />
         <ContentSmall children={language} />
       </div>
 

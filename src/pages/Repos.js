@@ -18,7 +18,6 @@ function Repos() {
         setStatus("loading");
         const gitHubService = new GithubService();
         const response = await gitHubService.respos(username);
-        console.log(username, response);
 
         if (response.message) throw new Error(response.message);
 
@@ -54,7 +53,7 @@ function Repos() {
                   <CardRepoAdditionals
                     stars={repo.stargazers_count}
                     forks={repo.forks_count}
-                    language={repo.language}
+                    language={repo.language || "none"}
                   />
                 </CardRepo>
               ))}
