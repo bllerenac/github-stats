@@ -1,6 +1,8 @@
 import { Global, css } from "@emotion/react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Repos from "./pages/Repos";
+import Search from "./pages/search";
+import Followers from "./pages/Followers";
+import Home from "./pages/Home";
 // import Search from "./pages/Search";
 function App() {
   return (
@@ -22,10 +24,11 @@ function App() {
       />
       <Router>
         <Switch>
-          <Route path="/" component={Repos} />
+          <Route path="/followers" component={Followers} />
+          <Route path="/search" component={Search} />
+          <Route path="/" component={Home} />
         </Switch>
       </Router>
-
     </div>
   );
 }
