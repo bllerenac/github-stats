@@ -4,10 +4,7 @@ import { css } from "@emotion/react";
 import NavComponent from "../components/containers/Nav";
 import InputText from "../components/form/InputText";
 import Icon from "../components/UI/Icon";
-import {
-  ContentCentered as Content,
-  ContentLargeBold,
-} from "../components/text/Content";
+import {ContentCentered as Content, ContentLargeBold} from "../components/text/Content";
 import Avatar from "../components/UI/Avatar";
 import { Card } from "../components/containers/Card";
 import { HeadingH2 } from "../components/text/Heading";
@@ -145,7 +142,6 @@ function Search({ history, location }) {
         css={css`
           position: fixed;
           bottom: 0;
-          width: 100%;
         `}
       />
     </StyledDiv>
