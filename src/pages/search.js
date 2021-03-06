@@ -4,10 +4,7 @@ import { css } from "@emotion/react";
 import NavComponent from "../components/containers/Nav";
 import InputText from "../components/form/InputText";
 import Icon from "../components/UI/Icon";
-import {
-  ContentCentered as Content,
-  ContentLargeBold,
-} from "../components/text/Content";
+import {ContentCentered as Content, ContentLargeBold} from "../components/text/Content";
 import Avatar from "../components/UI/Avatar";
 import { Card } from "../components/containers/Card";
 import { HeadingH2 } from "../components/text/Heading";
@@ -113,11 +110,13 @@ function Search({ history, location }) {
             <Content>Followers</Content>
           </Card>
         </Link>
-        <Card>
-          <Icon type="followings" size={60} color="#F2994A" />
-          <HeadingH2>{data.following}</HeadingH2>
-          <Content>Followings</Content>
-        </Card>
+        <Link to={`/users/${query}/followers`}>
+          <Card>
+            <Icon type="followings" size={60} color="#F2994A" />
+            <HeadingH2>{data.following}</HeadingH2>
+            <Content>Followings</Content>
+          </Card>
+        </Link>
         <Card>
           <Icon type="repos" size={60} color="#219653" />
           <HeadingH2>{data.public_repos}</HeadingH2>
@@ -143,7 +142,6 @@ function Search({ history, location }) {
         css={css`
           position: fixed;
           bottom: 0;
-          width: 100%;
         `}
       />
     </StyledDiv>

@@ -35,6 +35,15 @@ GithubService.prototype.followers = function (username) {
   });
 };
 
+GithubService.prototype.favorites = function (username) {
+  return apiFetch(`${BASE_URL}/users/${username}/followers`, {
+    method: "GET",
+    headers: {
+      Authorization: `Basic ${this.token}`,
+    },
+  });
+};
+
 GithubService.prototype.followings = function (username) {
   return apiFetch(`${BASE_URL}/users/${username}/following`, {
     method: "GET",
