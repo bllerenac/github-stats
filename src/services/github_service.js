@@ -35,4 +35,13 @@ GithubService.prototype.followers = function (username) {
   });
 };
 
+GithubService.prototype.followings = function (username) {
+  return apiFetch(`${BASE_URL}/users/${username}/following`, {
+    method: "GET",
+    headers: {
+      Authorization: `Basic ${this.token}`,
+    },
+  });
+};
+
 export default GithubService;
