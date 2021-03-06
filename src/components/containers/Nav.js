@@ -33,7 +33,7 @@ function NavComponent({css}){
                     <Link to={selectedOptions[name_icon]} key={name_icon}>
                         <Icon
                         type={name_icon}
-                        color={"#828282"}
+                        color={selected === selectedOptions[name_icon] ? "#828282" : "#BDBDBD"}
                         size={50}
                         />
                     </Link>
