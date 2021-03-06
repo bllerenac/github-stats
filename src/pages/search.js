@@ -106,7 +106,7 @@ function Search({ history, location }) {
         {data.bio}
       </Content>
       <div className="follow-container">
-        <Link to={`/followers/${query}`}>
+        <Link to={`/users/${query}/followers`}>
           <Card>
             <Icon type="followers" size={60} color="#2D9CDB" />
             <HeadingH2>{data.followers}</HeadingH2>

@@ -27,8 +27,8 @@ function App() {
       />
       <Router>
         <Switch>
-          <Route path="/followers" component={Followers} />
-          <Route path="/followings" component={Followings} />
+          <Route path="/users/:user/followers" component={Followers} />
+          <Route path="/users/:user/followings" component={Followings} />
           <Route path="/favorites" component={Favorite} />
           <Route path="/search" component={Search} />
           <Route path="/" component={Home} />

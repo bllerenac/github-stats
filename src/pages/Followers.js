@@ -7,13 +7,11 @@ import { useEffect, useState } from "react";
 import GithubService from "../services/github_service";
 // import Pagination from "../components/containers/Pagination";
 
-const getUser = (location) => location.slice(11);
-
-function Follers({ location }) {
+function Follers({ match }) {
   const [followers, setFollowers] = useState([]);
   const [status, setStatus] = useState("loading");
 
-  const username = getUser(location.pathname);
+  const username = match.params.user;
 
   useEffect(() => {
     async function loadFollowers() {

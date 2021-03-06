@@ -23,6 +23,8 @@ const StyledCardList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
+  height: calc(100vh - 155px);
   gap: 16px;
 `;
 
