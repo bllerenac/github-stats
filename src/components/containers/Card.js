@@ -55,7 +55,7 @@ const StyledCardHorizontal = styled(BasicCard)`
   align-items: center;
   gap: 8px;
 
-  & > *:nth-child(2) {
+  .item--expand {
     flex-grow: 1;
   }
 `;
@@ -89,10 +89,8 @@ function Card({ children, size }) {
   return <StyledCard size={size}>{children}</StyledCard>;
 }
 
-
 function CardHorizontal({ children }) {
   return <StyledCardHorizontal>{children}</StyledCardHorizontal>;
 }
 
-export { Card,CardRepo, CardRepoAdditionals, CardHorizontal };
-
+export { Card, CardRepo, CardRepoAdditionals, CardHorizontal };
