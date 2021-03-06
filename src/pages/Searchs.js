@@ -108,7 +108,7 @@ function Search({ history, location }) {
             <Content>Followers</Content>
           </Card>
         </Link>
-        <Link to={`/users/${query}/followers`}>
+        <Link to={`/users/${query}/followings`}>
           <Card>
             <Icon type="followings" size={60} color="#F2994A" />
             <HeadingH2>{data.following}</HeadingH2>
