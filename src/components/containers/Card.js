@@ -10,6 +10,7 @@ const sizes = {
 const StyledCard = styled.div`
   width: ${(props) =>
     sizes[props.size] ? sizes[props.size].width : sizes.default.width};
+  height: 140px;
   background: #ffffff;
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
   border-radius: 4px;

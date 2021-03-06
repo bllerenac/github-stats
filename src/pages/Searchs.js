@@ -29,6 +29,10 @@ const StyledDiv = styled.div`
     }
     & > .follow-container {
       display: flex;
+      flex-direction: row;
+      justify-content: center;  
+      align-items: center;
+      flex-wrap: wrap;
       gap: 16px;
     }
   }
@@ -132,7 +136,7 @@ function Search({ history, location }) {
   return (
     <Template>
       <StyledDiv>
-      <InputText value={query} onChange={(e) => setQuery(e.target.value)} />
+      <InputText place_h={"username"} text={data.name} onChange={(e) => setQuery(e.target.value)} />
       <div className="results">
         {!data && <NoData />}
         {data && <ProfileView />}
