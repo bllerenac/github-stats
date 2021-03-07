@@ -11,6 +11,7 @@ import { HeadingH2 } from "../components/text/Heading";
 import GithubService from "../services/github_service";
 import { getFavorite, toggleFavorite } from "../Utils/favorites";
 import { Link } from "react-router-dom";
+import NotFound from "../components/UI/NotFound";
 //renameSearch
 const StyledDiv = styled.div`
   display: flex;
@@ -132,14 +133,24 @@ function Search({ history, location }) {
       </div>
     </>
   );
-    const text = data ? data.name : query
+  
+  function ProfileRender(){
+    if(data.name){
+      return <ProfileView />
+    }else{
+      return (
+        <NotFound/>
+      )
+    }
+  }
+
   return (
     <Template>
       <StyledDiv>
-      <InputText place_h={"username"} text={text} onChange={(e) => setQuery(e.target.value)} />
+      <InputText place_h={"username"} text={data ? data.name : query} onChange={(e) => setQuery(e.target.value)} />
       <div className="results">
         {!data && <NoData />}
-        {data && <ProfileView />}
+        {data && ProfileRender()}
       </div>
       </StyledDiv>
     </Template>
