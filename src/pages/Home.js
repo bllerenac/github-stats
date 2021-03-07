@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { HeadingPrimary } from "../components/text/Heading"
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import octocat from "../assets/octocat.png"
-import NavComponent from "../components/containers/Nav";
 import Button from "../components/UI/Button"
 import { Template } from "./Template";
 
@@ -17,8 +16,6 @@ const StyledHome = styled.div`
 `;
 
 function Home() {
-    const location = useLocation();
-    const selected = location.pathname;
     const selectedOptions = {
         home: "/",
         search: "/Search",
