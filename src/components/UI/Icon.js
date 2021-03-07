@@ -38,6 +38,7 @@ function Icon({type, color, size, onClick}) {
             css={css`
             fill: ${color};
             font-size: ${size}px;
+            flex-shrink: 0;
             `}
         />        
     );    

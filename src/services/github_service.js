@@ -53,4 +53,13 @@ GithubService.prototype.followings = function (username) {
   });
 };
 
+GithubService.prototype.respos = function (username) {
+  return apiFetch(`${BASE_URL}/users/${username}/repos`, {
+    method: "GET",
+    headers: {
+      Authorization: `Basic ${this.token}`,
+    },
+  });
+};
+
 export default GithubService;
